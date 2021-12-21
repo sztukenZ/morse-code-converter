@@ -17,18 +17,22 @@ MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
 
 def start_program():
     try:
-        entry = ""
-        while entry != 'QUIT':
+        while True:
             print("This program encodes your message into Morse Code.")
             print("If you want to quit the program, type 'quit'")
-            entry = input("Please enter your message: ")
-            entry = entry.upper()
+            entry = input("Please enter your message: ").upper()
+            if entry.upper() == "QUIT":
+                break
             morse = ""
-            for letter in entry:
-                morse += f"{MORSE_CODE_DICT[letter]} "
-            print(morse)
+            try:
+                for letter in entry:
+                    morse += f"{MORSE_CODE_DICT[letter]} "
+                print(morse)
+            except KeyError as e:
+                print(f"{e.args} sign is cannot be used in Morse alphabet.")
     except KeyboardInterrupt:
         print("\nProgram finished with click interception.")
+
 
 
 if __name__ == '__main__':
