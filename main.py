@@ -34,7 +34,6 @@ def start_program():
         print("\nProgram finished with click interception.")
 
 
-
 if __name__ == '__main__':
     start_program()
     print("Thank you for using the program.")
